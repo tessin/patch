@@ -1,0 +1,21 @@
+{
+  "name": "@tessin/patch",
+  "version": "1.0.0",
+  "description": "A small library that allows changes to state to be submitted in the form of small patches that get applied in a transactional manner. It does not mutate state directly.",
+  "main": "lib/index.min.js",
+  "scripts": {
+    "test": "jest --coverage src",
+    "test-watch": "jest --watch --coverage src",
+    "build": "babel src/index.js --out-file lib/index.js && uglifyjs --compress --mangle --toplevel -o lib/index.min.js lib/index.js",
+    "test-build": "node bin/stage.js && jest lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "cross-env": "^5.0.5",
+    "jest": "^20.0.4",
+    "nodemon": "^1.11.0",
+    "uglify-js": "^3.0.27"
+  }
+}
