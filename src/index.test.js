@@ -112,6 +112,12 @@ test("add array element multiple", () => {
   expect(state.a).toEqual([1, 2]);
 });
 
+test("cannot add array element to object", () => {
+  expect(() => patch.apply({}, patch.add(1))).toThrow(
+    "expected undefined or Array (actual object)"
+  );
+});
+
 test("delete array element #1", () => {
   const state = patch.apply({ a: [1, 2, 3] }, { a: patch.delete(1) });
   expect(state.a).toEqual([2, 3]);

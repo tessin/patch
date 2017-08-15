@@ -77,6 +77,8 @@ function add(value) {
     throw new RangeError("patch.add expects 1 argument");
   }
   return (state, context) => {
+    if (!(typeof state === "undefined" || Array.isArray(state)))
+      throw TypeError(`expected undefined or Array (actual ${typeof state})`);
     const state2 = context.asMutableArray(state);
     state2.push(value);
     return state2;
